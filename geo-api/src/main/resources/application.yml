@@ -1,7 +1,7 @@
 server:
-  port: 8082
+  port: 8083
   servlet:
-    context-path: /app
+    context-path: /geometry
 spring:
   profiles:
     active: local
@@ -22,3 +22,5 @@ logging:
     org:
       hibernate:
         type: trace
+
+googleApiKey: AIzaSyD52V6H98iYDJ-p5_Np7f37aNnTt13kKtg

@@ -1,7 +1,7 @@
 spring:
   datasource:
-    hikari: #https://github.com/brettwooldridge/HikariCP#configuration-knobs-baby
-      jdbcUrl: jdbc:mysql://34.64.95.80:3306/app?useUnicode=true&characterEncoding=utf8
+    hikari:
+      jdbcUrl: jdbc:mysql://34.64.95.80:3306/pinstagram?useUnicode=true&characterEncoding=utf8
       username: root
       password: test1234
       driver-class-name: com.mysql.jdbc.Driver
@@ -22,3 +22,8 @@ spring:
   h2:
     console:
       enabled: false
+
+server-address:
+  geoServerAddress : http://localhost:8083
+  contentsServerAddress : http://localhost:8082
+  authServerAddress : http://localhost:8081

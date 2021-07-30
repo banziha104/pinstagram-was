@@ -16,7 +16,7 @@ public class AuthManager {
         var principal = authentication.getPrincipal();
 
         if (principal instanceof Claims){
-            System.out.println("3");
+            System.out.println("3" + ((Claims) principal).get("email"));
             return ((Claims) principal).get("email").equals("admin@admin.com");
         }
 

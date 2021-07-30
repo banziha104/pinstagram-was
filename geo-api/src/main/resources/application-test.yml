@@ -1,0 +1,34 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    username: sa
+    password:
+    url: jdbc:h2:tcp://localhost:9092/mem:testdb;MVCC=TRUE
+    driver-class-name: org.h2.Driver
+    hikari:
+      jdbc-url: jdbc:h2:mem:testdb
+  jpa:
+    database: h2
+    show-sql: true
+    generate-ddl: true
+
+    hibernate:
+      ddl-auto: none
+
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+  h2:
+    console:
+      enabled: true
+  sql:
+    init:
+      mode: always
+      platform: h2
