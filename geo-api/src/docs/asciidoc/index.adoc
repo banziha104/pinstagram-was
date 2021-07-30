@@ -1,7 +1,7 @@
 ifndef::snippets[]
 :snippets: ./build/generated-snippets
 endif::[]
-= API Document
+= API Document(Geometry Server)
 :doctype: book
 :icons: font
 :source-highlighter: highlightjs
@@ -21,22 +21,12 @@ endif::[]
 
 === 요청
 
-include::{snippets}/signIn/http-request.adoc[]
-include::{snippets}/signIn/request-fields.adoc[]
+include::{snippets}/reverseGeocoding/http-request.adoc[]
+include::{snippets}/reverseGeocoding/request-parameters.adoc[]
 
 === 응답
 
-include::{snippets}/signIn/http-response.adoc[]
-include::{snippets}/signIn/response-fields-data.adoc[]
+include::{snippets}/reverseGeocoding/http-response.adoc[]
+include::{snippets}/reverseGeocoding/response-fields-data.adoc[]
 
-== 회원가입
 
-=== 요청
-
-include::{snippets}/signUp/http-request.adoc[]
-include::{snippets}/signUp/request-fields.adoc[]
-
-=== 응답
-
-include::{snippets}/signUp/http-response.adoc[]
-include::{snippets}/signUp/response-fields-data.adoc[]
