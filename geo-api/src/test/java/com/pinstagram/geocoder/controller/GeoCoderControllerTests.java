@@ -26,6 +26,8 @@ import static org.springframework.restdocs.headers.HeaderDocumentation.requestHe
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
+import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse;
+import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
 import static org.springframework.restdocs.request.RequestDocumentation.requestParameters;
@@ -67,6 +69,7 @@ public class GeoCoderControllerTests {
                 .andExpect(status().isOk()).andDo(print())
                 .andDo(
                         document("reverseGeocoding",
+                                preprocessResponse(prettyPrint()),
                                 requestParameters(
                                         parameterWithName("latlng").description("위도경도 (예:37.389420,127.122625)")
                                 ),

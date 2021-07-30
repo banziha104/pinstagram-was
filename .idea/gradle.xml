@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/contents-api" />
             <option value="$PROJECT_DIR$/domain-common" />
             <option value="$PROJECT_DIR$/geo-api" />
+            <option value="$PROJECT_DIR$/talk-api" />
           </set>
         </option>
       </GradleProjectSettings>
