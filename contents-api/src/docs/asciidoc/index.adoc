@@ -1,0 +1,42 @@
+ifndef::snippets[]
+:snippets: ./build/generated-snippets
+endif::[]
+= API Document
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:sectlinks:
+
+
+== 공통 응답
+
+- code : 성공 여부
+- message : 메세지
+- data : 데이터
+
+
+== 로그인
+
+=== 요청
+
+include::{snippets}/signIn/http-request.adoc[]
+include::{snippets}/signIn/request-fields.adoc[]
+
+=== 응답
+
+include::{snippets}/signIn/http-response.adoc[]
+include::{snippets}/signIn/response-fields-data.adoc[]
+
+== 회원가입
+
+=== 요청
+
+include::{snippets}/signUp/http-request.adoc[]
+include::{snippets}/signUp/request-fields.adoc[]
+
+=== 응답
+
+include::{snippets}/signUp/http-response.adoc[]
+include::{snippets}/signUp/response-fields-data.adoc[]

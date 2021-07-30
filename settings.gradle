@@ -1,0 +1,7 @@
+rootProject.name = 'pinstagram-was'
+include 'auth-api'
+include 'geo-api'
+include 'api-common'
+include 'contents-api'
+include 'domain-common'
+
