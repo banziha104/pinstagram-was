@@ -13,9 +13,45 @@ endif::[]
 == 공통 응답
 
 - code : 성공 여부
+- httpCode : Http Status Code
 - message : 메세지
 - data : 데이터
 
+
+== 코드
+
+|===
+|Code|Message|Http Code
+
+|OK
+|요청이 성공하였습니다.
+|200
+
+|NO_CONTENTS
+|송신할 컨텐츠가 없습니다.
+|204
+
+|BAD_PARAMETER
+|요청 파라미터가 잘못되었습니다.
+|400
+
+|UNAUTHORIZED
+|리소스에 접근하기 위한 권한이 없습니다
+|401
+
+|FORBIDDEN
+|보유한 권한으로 접근할수 없는 리소스 입니다.
+|403
+
+|NOT_FOUND
+|리소스를 찾지 못했습니다.
+|404
+
+|UNSUPPORTED_MEDIA_TYPE
+|지원하지 않는 미디어 타입입니다.
+|415
+
+|===
 
 == 로그인
 

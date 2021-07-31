@@ -4,7 +4,7 @@ server:
     context-path: /geometry
 spring:
   profiles:
-    active: local
+    active: prod
   jpa:
     hibernate:
       naming:

@@ -1,4 +1,4 @@
-import com.pinstagram.jwt.JwtManager;
+import com.pinstagram.common.jwt.JwtManager;
 import io.jsonwebtoken.Claims;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

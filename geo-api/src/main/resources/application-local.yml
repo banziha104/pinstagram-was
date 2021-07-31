@@ -1,8 +1,8 @@
 spring:
   datasource:
     hikari:
-      jdbcUrl: jdbc:mysql://34.64.95.80:3306/pinstagram?useUnicode=true&characterEncoding=utf8
-      username: root
+      jdbcUrl: jdbc:mysql://34.64.133.74:3306/pinstagram?useUnicode=true&characterEncoding=utf8
+      username: pinstagram
       password: test1234
       driver-class-name: com.mysql.jdbc.Driver
       connectionTimeout: 30000

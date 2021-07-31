@@ -13,30 +13,105 @@ endif::[]
 == 공통 응답
 
 - code : 성공 여부
+- httpCode : Http Status Code
 - message : 메세지
 - data : 데이터
 
 
-== 로그인
+== 코드
+
+|===
+|Code|Message|Http Code
+
+|OK
+|요청이 성공하였습니다.
+|200
+
+|NO_CONTENTS
+|송신할 컨텐츠가 없습니다.
+|204
+
+|BAD_PARAMETER
+|요청 파라미터가 잘못되었습니다.
+|400
+
+|UNAUTHORIZED
+|리소스에 접근하기 위한 권한이 없습니다
+|401
+
+|FORBIDDEN
+|보유한 권한으로 접근할수 없는 리소스 입니다.
+|403
+
+|NOT_FOUND
+|리소스를 찾지 못했습니다.
+|404
+
+|UNSUPPORTED_MEDIA_TYPE
+|지원하지 않는 미디어 타입입니다.
+|415
+
+|===
+
+== 아이디로 조회
 
 === 요청
 
-include::{snippets}/signIn/http-request.adoc[]
-include::{snippets}/signIn/request-fields.adoc[]
+include::{snippets}/retrieve/http-request.adoc[]
+include::{snippets}/retrieve/path-parameters.adoc[]
 
 === 응답
 
-include::{snippets}/signIn/http-response.adoc[]
-include::{snippets}/signIn/response-fields-data.adoc[]
+include::{snippets}/retrieve/http-response.adoc[]
+include::{snippets}/retrieve/response-fields-data.adoc[]
 
-== 회원가입
+
+== 위도경도로 조회
 
 === 요청
 
-include::{snippets}/signUp/http-request.adoc[]
-include::{snippets}/signUp/request-fields.adoc[]
+include::{snippets}/retrieveByLatlng/http-request.adoc[]
+include::{snippets}/retrieveByLatlng/request-parameters.adoc[]
 
 === 응답
 
-include::{snippets}/signUp/http-response.adoc[]
-include::{snippets}/signUp/response-fields-data.adoc[]
+include::{snippets}/retrieveByLatlng/http-response.adoc[]
+include::{snippets}/retrieveByLatlng/response-fields-data.adoc[]
+
+
+== 생성
+
+=== 요청
+
+include::{snippets}/create/http-request.adoc[]
+include::{snippets}/create/request-fields.adoc[]
+
+=== 응답
+
+include::{snippets}/create/http-response.adoc[]
+include::{snippets}/create/response-fields.adoc[]
+
+== 수정
+
+=== 요청
+
+include::{snippets}/update/http-request.adoc[]
+include::{snippets}/update/path-parameters.adoc[]
+include::{snippets}/update/request-fields.adoc[]
+
+=== 응답
+
+include::{snippets}/update/http-response.adoc[]
+include::{snippets}/update/response-fields.adoc[]
+
+== 삭제
+
+=== 요청
+
+include::{snippets}/delete/http-request.adoc[]
+include::{snippets}/delete/path-parameters.adoc[]
+
+=== 응답
+
+include::{snippets}/delete/http-response.adoc[]
+include::{snippets}/delete/response-fields.adoc[]

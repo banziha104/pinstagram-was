@@ -1,15 +1,16 @@
 package com.pinstagram.authentication.service;
 
-import com.pinstagram.auth.AccountEntity;
 import com.pinstagram.authentication.dto.SignInDto;
 import com.pinstagram.authentication.dto.SignUpDto;
-import com.pinstagram.authentication.exception.UserNotFoundedException;
 import com.pinstagram.authentication.repository.AccountRepository;
-import com.pinstagram.jwt.AuthManager;
-import com.pinstagram.jwt.JwtManager;
-import com.pinstagram.response.ApiException;
+import com.pinstagram.domain.entity.auth.AccountEntity;
+import com.pinstagram.common.jwt.AuthManager;
+import com.pinstagram.common.jwt.JwtManager;
+import com.pinstagram.common.response.ApiException;
+import com.pinstagram.common.response.ApiResponseCode;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,33 +22,42 @@ public class AuthenticationService {
 
     @NonNull AuthManager authManager;
 
-    private String generateToken(String name, Long id){
-        return jwtManager.createToken(name,id);
+    @NonNull PasswordEncoder encoder;
+
+    private String generateToken(String name, Long id) {
+        return jwtManager.createToken(name, id);
     }
 
-    public boolean isDuplicateEmail(String email){
+    private boolean isDuplicateEmail(String email) {
         return repository.existsByEmail(email);
     }
 
-
     public SignInDto.SignInResponse signIn(SignInDto.SignInRequest request) throws ApiException {
-        var entity = repository.findByEmailAndPassword(request.getEmail(),request.getPassword());
-        if (entity.isPresent()){
-            var data = entity.get();
-            var response = new SignInDto.SignInResponse();
-            response.setToken(generateToken(data.name, data.id));
-            return response;
-        }else{
-            throw new UserNotFoundedException();
+
+        var entity = repository.findByEmail(request.getEmail());
+        if (entity.isEmpty()) {
+            throw new ApiException(ApiResponseCode.NO_CONTENTS);
         }
+        var isMatched = encoder.matches(request.getPassword(), entity.get().getPassword());
+        if (!isMatched) {
+            throw new ApiException(ApiResponseCode.PASSWORD_NOT_CORRECT);
+        }
+        var data = entity.get();
+        var response = new SignInDto.SignInResponse();
+        response.setToken(generateToken(data.getName(), data.getAccountId()));
+        return response;
     }
 
-    public String returnTokenWithSave(SignUpDto.CreateRequest request){
+    public String returnTokenWithSave(SignUpDto.CreateRequest request) {
+        if (isDuplicateEmail(request.getEmail())) {
+            throw new ApiException(ApiResponseCode.SIGNIN_DUPLICATION);
+        }
+
         var entity = new AccountEntity();
-        entity.email = request.getEmail();
-        entity.password = request.getPassword();
-        entity.name = request.getName();
+        entity.setEmail(request.getEmail());
+        entity.setPassword(encoder.encode(request.getPassword()));
+        entity.setName(request.getName());
         var savedData = repository.save(entity);
-        return generateToken(savedData.email,savedData.id);
+        return generateToken(savedData.getEmail(), savedData.getAccountId());
     }
 }
