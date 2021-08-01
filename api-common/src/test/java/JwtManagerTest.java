@@ -13,8 +13,8 @@ class JwtManagerTest {
     public void setUp(){
         jwtManager = new JwtManager();
         token = jwtManager.createToken("test@test.com",1L);
-
     }
+    
     @Test
     public void 토큰생성(){
         System.out.println(token);

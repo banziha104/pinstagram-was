@@ -73,7 +73,7 @@ public class ContentsServiceImpl implements ContentsService {
             throw new ApiException(ApiResponseCode.USER_NOT_FOUNDED);
         }
         var geoResponse = template.exchange(
-                addressConfig.getGeoServerAddress() + "?latlng=" + request.getLat() + "," + request.getLng(),
+                addressConfig.getGeoServerAddress() + "/?latlng=" + request.getLat() + "," + request.getLng(),
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<ApiResponse<GeoCodingResponse>>() {

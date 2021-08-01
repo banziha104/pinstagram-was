@@ -20,6 +20,14 @@ public class ContentsController {
 
     @NonNull
     private final ContentsService service;
+
+    // Kubernetes Ingress에서 헬스체크를 위한 메소드
+    // readinessProbe 로 헬스체크
+    @GetMapping("/healthCheck")
+    ApiResponse healthCheck(){
+        return ApiResponse.createOK(0);
+    }
+
     @GetMapping
     ApiResponse getContentsList(
             @RequestParam("latlng") String latlng,
