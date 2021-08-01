@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.http.HttpResponse;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -18,6 +19,12 @@ public class GeoCoderController {
 
     @NonNull GeoCoderService service;
 
+    // Kubernetes Ingress에서 헬스체크를 위한 메소드
+    // readinessProbe 로 헬스체크
+    @GetMapping("/healthCheck")
+    ApiResponse healthCheck(){
+        return ApiResponse.createOK(0);
+    }
 
     @GetMapping("/")
     ApiResponse<GeoCodingResponse> reverseGeoCoding(

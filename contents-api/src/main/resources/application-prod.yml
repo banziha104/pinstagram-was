@@ -22,3 +22,7 @@ spring:
   h2:
     console:
       enabled: false
+server-address:
+  geoServerAddress : http://coguri.shop/geometry
+  contentsServerAddress : http://coguri.shop/contents
+  authServerAddress : http://coguri.shop/auth

@@ -43,7 +43,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ActiveProfiles("test")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class ContentsControllerTest {
-    String adminToken = "Bearer eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJpZCI6MSwiZXhwIjoxNjI3ODA4ODYxLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSJ9.qm2NSQCWhXZZ1QezLIps1Kmo-rXM_YTaLDUmjr4CW3M";
+    String adminToken = "Bearer eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJpZCI6MSwiZXhwIjoxNjI3ODk1NTM2LCJlbWFpbCI6InRlc3RAdGVzdC5jb20ifQ.0K-sD7p_UqTk6GzExUM50L84k7gPSTYXWCzULMZEpz0";
 
     protected MockMvc mockMvc;
 

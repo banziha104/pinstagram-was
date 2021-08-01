@@ -23,6 +23,13 @@ public class AuthenticationController {
 
     @NonNull AuthManager authManager;
 
+    // Kubernetes Ingress에서 헬스체크를 위한 메소드
+    // readinessProbe 로 헬스체크
+    @GetMapping("/healthCheck")
+    ApiResponse healthCheck(){
+        return ApiResponse.createOK(0);
+    }
+
     @PostMapping("/signup")
     ApiResponse signup(
             @RequestBody @Validated SignUpDto.CreateRequest request
