@@ -79,7 +79,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         private Authentication getAuthentication(HttpServletRequest request) {
             String token = request.getHeader("Authorization");
-            System.out.println("request:" + token);
             if (token == null) {
                 return null;
             }

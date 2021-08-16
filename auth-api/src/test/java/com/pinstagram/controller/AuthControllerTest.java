@@ -96,7 +96,6 @@ public class AuthControllerTest {
         SignInDto.SignInRequest request = new SignInDto.SignInRequest();
         request.setEmail("test@test.com");
         request.setPassword("test");
-        request.setName("닉네임");
 
         var result = mockMvc.perform(post("/signin")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -110,7 +109,6 @@ public class AuthControllerTest {
                         document("signIn",
                                 requestFields(
                                         fieldWithPath("email").type(JsonFieldType.STRING).description("이메일"),
-                                        fieldWithPath("name").type(JsonFieldType.STRING).description("이메일"),
                                         fieldWithPath("password").type(JsonFieldType.STRING).description("패스워드")
                                 ),
                                 responseFields(

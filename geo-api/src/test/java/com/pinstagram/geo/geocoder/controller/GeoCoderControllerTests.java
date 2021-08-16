@@ -86,4 +86,30 @@ public class GeoCoderControllerTests {
                         )
                 );
     }
+
+    @Test
+    void 지오코딩_테스트() throws Exception {
+        var result = mockMvc.perform(get("/geo")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .param("address","경기 성남시 분당구 서현로 170"))
+                .andDo(print());
+
+        result
+                .andExpect(status().isOk()).andDo(print())
+                .andDo(
+                        document("Geocoding",
+                                preprocessResponse(prettyPrint()),
+                                requestParameters(
+                                        parameterWithName("address").description("주소")
+                                ),
+                                responseFields(
+                                        beneathPath("data").withSubsectionId("data"),
+                                        fieldWithPath("latitude").type(JsonFieldType.NUMBER).description("위도"),
+                                        fieldWithPath("longitude").type(JsonFieldType.NUMBER).description("경도"),
+                                        fieldWithPath("province").type(JsonFieldType.STRING).description("주소")
+                                )
+                        )
+                );
+    }
 }

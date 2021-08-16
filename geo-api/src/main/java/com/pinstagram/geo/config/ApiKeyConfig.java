@@ -11,4 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class ApiKeyConfig {
     @Value("${googleApiKey}")
     private String googleApiKey;
+
+    @Value("${kakaoApiKey}")
+    private String kakaoApiKey;
 }

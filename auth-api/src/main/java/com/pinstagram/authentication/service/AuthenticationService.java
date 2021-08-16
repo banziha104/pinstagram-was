@@ -24,8 +24,8 @@ public class AuthenticationService {
 
     @NonNull PasswordEncoder encoder;
 
-    private String generateToken(String name, Long id) {
-        return jwtManager.createToken(name, id);
+    private String generateToken(String email, String name, Long id) {
+        return jwtManager.createToken(email,name, id);
     }
 
     private boolean isDuplicateEmail(String email) {
@@ -33,10 +33,9 @@ public class AuthenticationService {
     }
 
     public SignInDto.SignInResponse signIn(SignInDto.SignInRequest request) throws ApiException {
-
         var entity = repository.findByEmail(request.getEmail());
         if (entity.isEmpty()) {
-            throw new ApiException(ApiResponseCode.NO_CONTENTS);
+            throw new ApiException(ApiResponseCode.USER_NOT_FOUNDED);
         }
         var isMatched = encoder.matches(request.getPassword(), entity.get().getPassword());
         if (!isMatched) {
@@ -44,7 +43,7 @@ public class AuthenticationService {
         }
         var data = entity.get();
         var response = new SignInDto.SignInResponse();
-        response.setToken(generateToken(data.getName(), data.getAccountId()));
+        response.setToken(generateToken(data.getEmail(),data.getName(),data.getAccountId()));
         return response;
     }
 
@@ -58,6 +57,6 @@ public class AuthenticationService {
         entity.setPassword(encoder.encode(request.getPassword()));
         entity.setName(request.getName());
         var savedData = repository.save(entity);
-        return generateToken(savedData.getEmail(), savedData.getAccountId());
+        return generateToken(savedData.getEmail(), savedData.getName(),savedData.getAccountId());
     }
 }

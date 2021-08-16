@@ -5,10 +5,9 @@ import com.pinstagram.contents.config.ServerAddressConfig;
 import com.pinstagram.contents.dto.CreateDto;
 import com.pinstagram.contents.dto.RetrieveDto;
 import com.pinstagram.contents.repository.AccountRepository;
-import com.pinstagram.dto.geo.GeoCodingResponse;
+import com.pinstagram.dto.geo.ReverseGeoCodingResponse;
 import com.pinstagram.contents.dto.UpdateDto;
 import com.pinstagram.contents.repository.ContentsRepository;
-import com.pinstagram.domain.entity.contents.ContentsEntity;
 import com.pinstagram.common.jwt.AuthManager;
 import com.pinstagram.common.response.ApiException;
 import com.pinstagram.common.response.ApiResponseCode;
@@ -24,9 +23,7 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 @Service
@@ -76,7 +73,7 @@ public class ContentsServiceImpl implements ContentsService {
                 addressConfig.getGeoServerAddress() + "/?latlng=" + request.getLat() + "," + request.getLng(),
                 HttpMethod.GET,
                 null,
-                new ParameterizedTypeReference<ApiResponse<GeoCodingResponse>>() {
+                new ParameterizedTypeReference<ApiResponse<ReverseGeoCodingResponse>>() {
                 }
         );
         if (geoResponse.getStatusCode() != HttpStatus.OK) {

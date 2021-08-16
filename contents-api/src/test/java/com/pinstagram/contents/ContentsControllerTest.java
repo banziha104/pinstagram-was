@@ -1,6 +1,7 @@
 package com.pinstagram.contents;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.pinstagram.common.jwt.JwtManager;
 import com.pinstagram.contents.dto.CreateDto;
 import com.pinstagram.contents.dto.UpdateDto;
 import io.jsonwebtoken.Header;
@@ -43,7 +44,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ActiveProfiles("test")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class ContentsControllerTest {
-    String adminToken = "Bearer eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJpZCI6MSwiZXhwIjoxNjI3ODk1NTM2LCJlbWFpbCI6InRlc3RAdGVzdC5jb20ifQ.0K-sD7p_UqTk6GzExUM50L84k7gPSTYXWCzULMZEpz0";
+    String adminToken;
 
     protected MockMvc mockMvc;
 
@@ -61,6 +62,7 @@ class ContentsControllerTest {
                 .apply(documentationConfiguration(restDocumentation))
                 .build();
         objectMapper = new ObjectMapper();
+        adminToken = "Bearer " + new JwtManager().createToken("test@test.com","김테스트",1L);
     }
 
     @Test

@@ -67,4 +67,15 @@ include::{snippets}/reverseGeocoding/request-parameters.adoc[]
 include::{snippets}/reverseGeocoding/http-response.adoc[]
 include::{snippets}/reverseGeocoding/response-fields-data.adoc[]
 
+== 지오코딩
+
+=== 요청
+
+include::{snippets}/Geocoding/http-request.adoc[]
+include::{snippets}/Geocoding/request-parameters.adoc[]
+
+=== 응답
+
+include::{snippets}/Geocoding/http-response.adoc[]
+include::{snippets}/Geocoding/response-fields-data.adoc[]
 
