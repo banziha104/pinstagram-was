@@ -28,5 +28,12 @@
 - auth-api : JWT와 인증과 관련된 어플리케이션
 - contents-api : 컨텐츠에 관한 통신을 관리하는 어플리케이션
 - geo-api : 지오코딩, 리버스 지오코딩을 관리하는 어플리케이션
+- 각 모듈 상관관계
 
-![module]()
+![module](https://github.com/banziha104/pinstagram-was/blob/master/markdown/images/module.png)
+
+## Features
+
+## 
+
+
