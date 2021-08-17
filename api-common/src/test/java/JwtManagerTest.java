@@ -12,7 +12,7 @@ class JwtManagerTest {
     @BeforeEach
     public void setUp(){
         jwtManager = new JwtManager();
-        token = jwtManager.createToken("test@test.com",1L);
+        token = jwtManager.createToken("test@test.com","김테스트",1L);
     }
     
     @Test
@@ -27,6 +27,7 @@ class JwtManagerTest {
         Claims claims = jwtManager.getClaims(token);
         System.out.println(claims);
         assertEquals(claims.get("id"),1);
+        assertEquals(claims.get("name"),"김테스트");
         assertEquals(claims.get("email"),"test@test.com");
     }
 }

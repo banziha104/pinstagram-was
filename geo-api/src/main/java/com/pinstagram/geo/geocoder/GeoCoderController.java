@@ -1,6 +1,8 @@
 package com.pinstagram.geo.geocoder;
 
-import com.pinstagram.dto.geo.GeoCodingResponse;
+import com.pinstagram.dto.geo.ReverseGeoCodingResponse;
+import com.pinstagram.geo.geocoder.dto.KakaoGeoCodingResponse;
+import com.pinstagram.geo.geocoder.dto.response.GeoCodingResponse;
 import com.pinstagram.geo.geocoder.service.GeoCoderService;
 import com.pinstagram.common.response.ApiResponse;
 import lombok.NonNull;
@@ -9,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.net.http.HttpResponse;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -27,10 +28,17 @@ public class GeoCoderController {
     }
 
     @GetMapping("/")
-    ApiResponse<GeoCodingResponse> reverseGeoCoding(
+    ApiResponse<ReverseGeoCodingResponse> reverseGeoCoding(
             @RequestParam("latlng") String latlng
             ){
         var newLatlng = Arrays.stream(latlng.split(",")).map(Double::parseDouble).collect(Collectors.toList());
         return ApiResponse.createOK(service.requestReverseGeocoding(newLatlng.get(0),newLatlng.get(1)));
+    }
+
+    @GetMapping("/geo")
+    ApiResponse<GeoCodingResponse> geoCoding(
+            @RequestParam("address") String address
+    ){
+        return ApiResponse.createOK(service.requestAddressResponse(address));
     }
 }

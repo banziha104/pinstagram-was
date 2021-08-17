@@ -14,13 +14,14 @@ public class JwtManager {
     private static final byte[] SECRET_KEY = "pinstagramsecret".getBytes(StandardCharsets.UTF_8);
 
 
-    public String createToken(String email, long id){
+    public String createToken(String email, String name, long id){
         Map<String, Object> heaaders = new HashMap<>();
         heaaders.put("type","JWT");
         heaaders.put("alg","HS256");
 
         Map<String,Object> payloads = new HashMap<>();
         payloads.put("email",email);
+        payloads.put("name",name);
         payloads.put("id",id);
 
         Date ext = new Date();

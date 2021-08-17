@@ -21,10 +21,6 @@ public class SignInDto {
         @NotNull
         @Size(min = 4, max = 14)
         String password;
-
-        @NotNull
-        @Size(max = 20)
-        String name;
     }
 
     @Getter
