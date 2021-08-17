@@ -1,10 +1,37 @@
-﻿<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey={APP_KEY}&libraries=services"></script>
+﻿<?php
+header("Content-Type: text/html; charset=UTF-8");
+?>
+
+
+<div id="wrap" style="display:none;border:1px solid;width:400px;height:300px;margin:5px 0;position:relative">
+    <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+</div>
+
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
+    var element_wrap = document.getElementById('wrap');
+    element_wrap.style.display = 'block';
+
+    var currentScroll = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
     new daum.Postcode({
-        oncomplete: function (data) {
-            window.Pinstagram.setAddress(data)
-        }
-    }).open();
+        oncomplete: function(data) {
+            if(data.userSelectedType=="R"){
+                window.Pinstagram.setAddress(data.zonecode, data.roadAddress, data.buildingName);
+
+            }
+            else{
+                window.Pinstagram.setAddress(data.zonecode, data.jibunAddress, data.buildingName);
+            }
+            element_wrap.style.display = 'none';
+            document.body.scrollTop = currentScroll;
+        },
+        onresize : function(size) {
+            element_wrap.style.height = size.height+'px';
+        },
+
+        width : '100%',
+        height : '100%'
+    }).embed(element_wrap);
+
 
 </script>
