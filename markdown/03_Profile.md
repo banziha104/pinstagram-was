@@ -5,8 +5,7 @@
 | application.yml       | 기본 프로필, 공통의 요소를 명시                   |                             |
 | application-test.yml  | 테스트 환경에서 실행되는 어플리케이션 프로필      | H2                          |
 | application-local.yml | 로컬 환경에서 실행되는 어플리케이션 프로필        | Local MySQL 8.x             |
-| application-prod.yml  |                                                   | Google Cloud SQL(MySQL 8.x) |
-| geo-api               | 지오코딩, 리버스 지오코딩을 관리하는 어플리케이션 | 어플리케이션                |
+| application-prod.yml  | GKE에서 실행되는 어플리케이션 프로필                                                | Google Cloud SQL(MySQL 8.x) |
 
 <br>
 
