@@ -48,6 +48,8 @@
 
 ## 주요 구현 사항 
 
+> 클릭하시면 해당 마크다운 파일로 리다이렉팅 됩니다.
+
 - ### [JWT 인증](https://github.com/banziha104/pinstagram-was/blob/master/markdown/01_JWT.md)
 - ### [BCrypt 암호화](https://github.com/banziha104/pinstagram-was/blob/master/markdown/02_BCrypt.md)
 - ### [Profile 분할](https://github.com/banziha104/pinstagram-was/blob/master/markdown/03_Profile.md)
@@ -59,6 +61,12 @@
 <br>
 
 ## 데이터베이스 보안
+
+- 현재 각 Application 의 Profile에는 데이터베이스 주소, 유저이름,비밀번호가 명시되어있음.
+- 원칙대로라면 이를 k8s에서 ConfigMap을 생성하거나, 환경변수 또는 별도의 파일로 분리하는 것이 맞음
+- 그러나 해당프로젝트는 실무 프로젝트가 아니고, 토이 프로젝트이기때문에 어디서나 실행될 수 있어야하기때문에 명시
+- 문제가 되는 Prod의 경우, Cloud SQL에서 읽을수 있는 권한은 GKE의 IP(서브넷마스크 32bit, 즉 한개만)로 한정해두어서 다른 곳에서는 접근할 수 없는 선에서 마무리.
+
 
 <br>
 
@@ -85,4 +93,7 @@
 
 ## 후기
 
-
+- 마이크로 서비스는 Golang(정말 가끔 Rust), 모노리틱은 Spring Boot로 개발하였는데, 처음으로 Spring Boot를 이용해 마이크로 서비스를 개발해보았습니다.
+- Golang보다는 무겁지만 그래도 유지보수적인면에서는 더욱 편리한 것 같습니다.
+- 현재 DockerFile이 Jar를 옮기도록 되어있어 조금 아쉽습니다. 하나만 바뀌어도 번번히 빌드해야되는게 아쉽습니다. 
+- 데이터베이스를 분할하지 못한게 아쉽습니다. 기술부채에 달아놓았으니 추후에 분할하고자합니다.
