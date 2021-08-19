@@ -45,12 +45,14 @@ public class GeoCoderService {
         HttpHeaders headers = new HttpHeaders();
         headers.set(HttpHeaders.AUTHORIZATION, "KakaoAK " + config.getKakaoApiKey());
         HttpEntity request = new HttpEntity(headers);
+        System.out.println("네트워크 시작");
         var data = template.exchange(
                 generateGeoCodingUrl(address),
                 HttpMethod.GET,
                 request,
                 KakaoGeoCodingResponse.class
         ).getBody();
+        System.out.println(data.toString());
         response.setLatitude(Double.parseDouble(data.getDocuments().get(0).getY()));
         response.setLongitude(Double.parseDouble(data.getDocuments().get(0).getX()));
         response.setProvince(data.getDocuments().get(0).getAddress().getRegion2depthName() +" " +data.getDocuments().get(0).getAddress().getRegion3depthHName());
