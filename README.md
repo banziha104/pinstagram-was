@@ -7,7 +7,7 @@
 ## 목차 
 
 ### [1.Pinstagram 프로젝트](#Pinstagram-프로젝트)
-### [2.API 문서](#Document)
+### [2.API 문서](#API-문서)
 ### [3.모듈 구조](#모듈-구조)
 ### [4.주요 구현 사항](#주요-구현-사항)
 ### [5.데이터베이스 보안](#데이터베이스-보안)
@@ -45,7 +45,7 @@
   
 <br>
 
-## Document 
+## API 문서 
 
 - #### [Auth Document](https://www.coguri.shop/auth/docs/index.html)
 - #### [Contents Document](https://www.coguri.shop/contents/docs/index.html)
