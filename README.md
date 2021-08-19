@@ -4,6 +4,18 @@
 
 <br>
 
+## 목차 
+
+### [1.Pinstagram 프로젝트](#Pinstagram-프로젝트)
+### [2.API 문서](#Document)
+### [3.모듈 구조](#모듈-구조)
+### [4.주요 구현 사항](#주요-구현-사항)
+### [5.데이터베이스 보안](#데이터베이스-보안)
+### [6.기술부채](#기술-부채)
+### [7.후기](#후기)
+
+<br>
+
 ## Pinstagram 프로젝트
 
 > 전체 서비스 설명은  [Android](https://github.com/banziha104/pinstagram_android)에 명시되어 있습니다
@@ -32,15 +44,6 @@
   - ### [🕳 Pinstagram Socket (Node.js & Socket.io)](https://github.com/banziha104/pinstagram_socket)
   
 <br>
-
-## 목차 
-
-### [1.API 문서](#Document)
-### [2.모듈 구조](#모듈-구조)
-### [3.주요 구현 사항](#주요-구현-사항)
-### [4.데이터베이스 보안](#데이터베이스-보안)
-### [5.기술부채](#기술-부채)
-### [6.후기](#후기)
 
 ## Document 
 
