@@ -18,7 +18,7 @@
 
 ## Pinstagram 프로젝트
 
-> 전체 서비스 설명은  [Android](https://github.com/banziha104/pinstagram_android)에 명시되어 있습니다
+![서비스](https://github.com/banziha104/pinstagram_android/blob/master/markdown/images/service.png)
 
 - ### 기획 배경
   - 새로운 기술을 도입해야 될 때마다 새로운 토이프로젝트를 만들었는데(그러다보니 레파지토리가 250개를 넘었습니다..), 이렇게 계속 진행하다보니 다른 기술들과 유기적으로 연결되지 못하는 느낌을 받았습니다.
@@ -112,6 +112,12 @@
     - 추후에 각 Deployment 마다 데이터베이스를 생성하고 Storage에 볼륨을 마운트하는 방식으로 진행 예정
 - ### Pageable 처리
     - 현 상태에서는 필요없지만, 그럴일은 없지만 앱이 커진다고 가정했을때 필요함으로 구현 예정
+- ### **테스트 서버 구축**
+    - 비용 문제로 테스트 서버를 구축하지 못함.
+    - minikube로 별도 테스트 서버를 구축 예정.
+- ### CI/CD
+    - 젠킨스 설치 위치(클라우드에 도커로 올릴지, 로컬에서 설치할지)를 고민중.
+  
 <br>
 
 ## 후기
