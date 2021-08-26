@@ -50,6 +50,7 @@
 - #### [Auth Document](https://www.coguri.shop/auth/docs/index.html)
 - #### [Contents Document](https://www.coguri.shop/contents/docs/index.html)
 - #### [Geometry Document](https://www.coguri.shop/geometry/docs/index.html)
+- #### [Event Document](https://www.coguri.shop/event/docs/index.html)
 
 <br>
 
