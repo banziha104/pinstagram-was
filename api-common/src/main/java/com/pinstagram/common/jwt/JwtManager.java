@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class JwtManager {
-    private static final long EXPIRED_TIME = 1000 * 60L * 60L * 24L;
+    private static final long EXPIRED_TIME = 1000 * 60L * 60L * 24L * 30L;
     private static final byte[] SECRET_KEY = "pinstagramsecret".getBytes(StandardCharsets.UTF_8);
 
 

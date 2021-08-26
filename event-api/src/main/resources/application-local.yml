@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    hikari:
+      jdbcUrl: jdbc:mysql://localhost:3306/pinstagram?useUnicode=true&characterEncoding=utf8
+      username: pinstagram
+      password: test1234
+      driver-class-name: com.mysql.jdbc.Driver
+      connectionTimeout: 30000
+      idleTimeout: 600000
+      maxLifetime: 1800000
+      minimumIdle: 40
+      maximumPoolSize: 40
+  jpa:
+    database: mysql
+    show-sql: false
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  h2:
+    console:
+      enabled: false
+
+server-address:
+  geoServerAddress : http://localhost:8083
+  contentsServerAddress : http://localhost:8082
+  authServerAddress : http://localhost:8081

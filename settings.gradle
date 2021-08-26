@@ -4,4 +4,5 @@ include 'geo-api'
 include 'api-common'
 include 'contents-api'
 include 'domain-common'
+include 'event-api'
 

@@ -102,14 +102,6 @@ public class ContentsServiceImpl implements ContentsService {
 - ### Repository Layer : 서비스의 요청에따라 레파지토리에 접근 
 
 ```java
-package com.pinstagram.contents.repository;
-
-import com.pinstagram.domain.entity.contents.ContentsEntity;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-
-import java.util.List;
 
 public interface ContentsRepository extends JpaRepository<ContentsEntity,Long> {
     @Query(value = "select * from contents c where st_distance_sphere(POINT(:lng,:lat),POINT(c.lng,c.lat)) < :limit",nativeQuery = true)
