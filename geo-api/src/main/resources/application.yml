@@ -23,5 +23,5 @@ logging:
       hibernate:
         type: trace
 
-googleApiKey: AIzaSyD52V6H98iYDJ-p5_Np7f37aNnTt13kKtg
+googleApiKey: AIzaSyC2CIndYjiPvVUI9dGENT5Lv3FzFkxJw8c
 kakaoApiKey: 8d39467879a51b1cfd18613970929af4

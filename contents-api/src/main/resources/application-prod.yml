@@ -23,6 +23,6 @@ spring:
     console:
       enabled: false
 server-address:
-  geoServerAddress : http://coguri.shop/geometry
-  contentsServerAddress : http://coguri.shop/contents
-  authServerAddress : http://coguri.shop/auth
+  geoServerAddress : https://coguri.shop/geometry
+  contentsServerAddress : https://coguri.shop/contents
+  authServerAddress : https://coguri.shop/auth

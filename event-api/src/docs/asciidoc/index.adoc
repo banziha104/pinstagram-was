@@ -1,7 +1,7 @@
 ifndef::snippets[]
 :snippets: ./build/generated-snippets
 endif::[]
-= API Document(Geometry Server)
+= API Document(Event Server)
 :doctype: book
 :icons: font
 :source-highlighter: highlightjs
